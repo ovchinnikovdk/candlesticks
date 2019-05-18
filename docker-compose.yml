@@ -34,4 +34,4 @@ services:
     depends_on:
       - kafka
       - zookeeper
-      - redisx
+      - redis
