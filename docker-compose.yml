@@ -23,11 +23,15 @@ services:
       - "6379:6379"
   app:
     restart: always
-    build: .
+    build: ./
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ~/.m2:/root/.m2
     expose:
       - "8080"
     command: mvn clean spring-boot:run
     depends_on:
       - kafka
       - zookeeper
-      - redis
+      - redisx
